@@ -36,3 +36,24 @@ RegisterNetEvent('null-template-context_menu:client:openQBMenu', function()
     }
     exports['qb-menu']:openMenu(menuList)
 end)
+
+RegisterNetEvent('null-template-context_menu:client:openSubMenu', function()
+    local subMenuList = {
+        {
+            header = "< Go Back",
+            params = {
+                event = "null-template-context_menu:client:openQBMenu"
+            }
+        },
+        {
+            header = "Sub Option 1",
+            txt = "Just a placeholder",
+            disabled = true
+        }
+    }
+    exports['qb-menu']:openMenu(subMenuList)
+end)
+
+RegisterNetEvent('null-template-context_menu:client:showNotify', function(data)
+    QBCore.Function.Notify(data.message, data.type)
+end)
